@@ -55,3 +55,44 @@ canvas {
   height: auto;
   display: block;
 }
+.tab-content {
+  padding: 24px 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.sketch-narrative,
+.sketch-evolution {
+  max-width: 920px;
+  margin: 16px auto;
+  color: #111827;
+  line-height: 1.6;
+}
+
+.sketch-narrative h3 {
+  margin: 0 0 10px 0;
+}
+
+.sketch-narrative ul {
+  margin: 8px 0 16px 20px;
+}
+
+.sketch-container {
+  max-width: 920px;
+  margin: 16px auto;
+  min-height: 520px;
+  height: 70vh;
+}
+
+.sketch-evolution figure {
+  max-width: 920px;
+  margin: 14px auto;
+}
+
+.sketch-evolution img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+}
