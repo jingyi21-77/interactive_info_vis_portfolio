@@ -225,3 +225,5 @@ const sketch4 = (p) => {
     p.pop();
   }
 };
+
+new p5(sketch4);
