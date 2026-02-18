@@ -3,34 +3,73 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
   <title>INFO 474: Interactive Information Visualization</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
   <main>
     <nav class="tabs" role="tablist" aria-label="Main tabs">
-      <button type="button" class="tab-btn active" data-target="hwk4" role="tab" aria-selected="true">HWK 4</button>
+      <button type="button" class="tab-btn active" data-target="hwk4a" data-sketch="sk2" role="tab" aria-selected="true">HWK 4 A</button>
+      <button type="button" class="tab-btn" data-target="hwk4b" data-sketch="sk3" role="tab" aria-selected="false">HWK 4 B</button>
+      <button type="button" class="tab-btn" data-target="hwk4c" data-sketch="sk4" role="tab" aria-selected="false">HWK 4 C</button>
       <button type="button" class="tab-btn" data-target="hwk5" role="tab" aria-selected="false">HWK 5</button>
     </nav>
 
-    <section id="hwk4" class="tab-content active" role="tabpanel">
-      <div class="sketch-container" id="sketch-container-hwk4">
-        <iframe style="width: 100%; height: 100vh; border: 0;"
-          src="https://docs.google.com/document/d/e/2PACX-1vStWpfAr_ukylK6MoihGQ8B2IFGSJ1NsmhIY65TCaeVNoOeorFFPLv_bMz8De6r8qKsv-NMguUh5E8N/pub?embedded=true">
-        </iframe>
+    <section id="hwk4a" class="tab-content active" role="tabpanel">
+      <div id="sketch-container-sk2" class="sketch-container"></div>
+
+      <div class="sketch-evolution">
+        <div class="sketch-narrative">
+          <h3>HWK 4 A — Design notes</h3>
+          <p>Context, mapping, and reflection for Clock A.</p>
+        </div>
+
+        <h3>Sketch evolution</h3>
+
+        <figure>
+          <img src="images/1.jpg" alt="HWK4 A sketch 1" />
+          <figcaption>Step 1</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/2.jpg" alt="HWK4 A sketch 2" />
+          <figcaption>Step 2</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/3.jpg" alt="HWK4 A sketch 3" />
+          <figcaption>Step 3</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="hwk4b" class="tab-content" role="tabpanel">
+      <div id="sketch-container-sk3" class="sketch-container"></div>
+
+      <div class="sketch-narrative">
+        <h3>HWK 4 B — Design notes</h3>
+        <p>Context, mapping, and reflection for Clock B.</p>
+      </div>
+    </section>
+
+    <section id="hwk4c" class="tab-content" role="tabpanel">
+      <div id="sketch-container-sk4" class="sketch-container"></div>
+
+      <div class="sketch-narrative">
+        <h3>HWK 4 C — Design notes</h3>
+        <p>Context, mapping, and reflection for Clock C.</p>
       </div>
     </section>
 
     <section id="hwk5" class="tab-content" role="tabpanel">
       <div class="sketch-container" id="sketch-container-hwk5">
-        <iframe style="width: 100%; height: 100vh; border: 0;"
-          src="./hwk5/">
-        </iframe>
+        <iframe style="width:100%; height:100vh; border:0;" src="./hwk5/"></iframe>
       </div>
     </section>
-
   </main>
 
   <script src="script.js"></script>
