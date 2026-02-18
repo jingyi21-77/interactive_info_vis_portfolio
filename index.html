@@ -4,200 +4,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
   <title>INFO 474: Interactive Information Visualization</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
   <main>
     <nav class="tabs" role="tablist" aria-label="Main tabs">
-      <button type="button" class="tab-btn active" data-target="tab1" data-sketch="sk1" role="tab"
-        aria-selected="true">Lab 1</button>
-
-      <button type="button" class="tab-btn" data-target="hwk4" role="tab">HWK 4. Desc</button>
-      <button type="button" class="tab-btn" data-target="tab2" data-sketch="sk2" role="tab">HWK 4. A</button>
-      <button type="button" class="tab-btn" data-target="tab3" data-sketch="sk3" role="tab">HWK 4. B</button>
-      <button type="button" class="tab-btn" data-target="tab4" data-sketch="sk4" role="tab">HWK 4. C</button>
-
-      <button type="button" class="tab-btn" data-target="tab5" data-sketch="sk5" role="tab">Ex 1</button>
-      <button type="button" class="tab-btn" data-target="tab6" data-sketch="sk6" role="tab">Ex 2</button>
-      <button type="button" class="tab-btn" data-target="tab7" data-sketch="sk7" role="tab">Ex 3</button>
-      <button type="button" class="tab-btn" data-target="tab8" data-sketch="sk8" role="tab">Ex 4</button>
-      <button type="button" class="tab-btn" data-target="tab9" data-sketch="sk9" role="tab">Ex 5</button>
-      <button type="button" class="tab-btn" data-target="tab10" data-sketch="sk10" role="tab">Ex 6</button>
-      <button type="button" class="tab-btn" data-target="tab11" data-sketch="sk11" role="tab">Ex 7</button>
-      <button type="button" class="tab-btn" data-target="tab12" data-sketch="sk12" role="tab">Ex 8</button>
-      <button type="button" class="tab-btn" data-target="tab13" data-sketch="sk13" role="tab">Ex 9</button>
-      <button type="button" class="tab-btn" data-target="tab14" data-sketch="sk14" role="tab">Ex 10</button>
+      <button type="button" class="tab-btn active" data-target="hwk4" role="tab" aria-selected="true">HWK 4</button>
+      <button type="button" class="tab-btn" data-target="hwk5" role="tab" aria-selected="false">HWK 5</button>
     </nav>
 
-    <section id="tab1" class="tab-content active" role="tabpanel">
-      <div id="sketch-container-sk1" class="sketch-container"></div>
-    </section>
-
-    <section id="hwk4" class="tab-content" role="tabpanel">
-      <div id="sketch-container-hwk4" class="sketch-container">
-        <iframe style="width: 100%; height: 100vh;"
-          src="https://docs.google.com/document/d/e/2PACX-1vStWpfAr_ukylK6MoihGQ8B2IFGSJ1NsmhIY65TCaeVNoOeorFFPLv_bMz8De6r8qKsv-NMguUh5E8N/pub?embedded=true"></iframe>
+    <section id="hwk4" class="tab-content active" role="tabpanel">
+      <div class="sketch-container" id="sketch-container-hwk4">
+        <iframe style="width: 100%; height: 100vh; border: 0;"
+          src="https://docs.google.com/document/d/e/2PACX-1vStWpfAr_ukylK6MoihGQ8B2IFGSJ1NsmhIY65TCaeVNoOeorFFPLv_bMz8De6r8qKsv-NMguUh5E8N/pub?embedded=true">
+        </iframe>
       </div>
     </section>
 
-    <section id="tab2" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk2" class="sketch-container"></div>
-
-      <div id="sketch-drawing-sk2" class="sketch-evolution">
-        <div class="sketch-narrative" aria-labelledby="sk2-narrative-title">
-          <h3 id="sk2-narrative-title">Boiling Pot Clock — Sketch narrative</h3>
-
-          <p>
-            <strong>Context:</strong> This clock supports cooking on a desktop while multitasking. I often start multiple timers
-            (boil, simmer, rest), and I need a quick “at-a-glance” view of how long has passed/what’s happening without reading small digits.
-          </p>
-
-          <p><strong>Design decisions:</strong></p>
-          <ul>
-            <li>
-              I used a “boiling pot” metaphor to map time to cooking cues: flames indicate hours (heat level),
-              ingredients/steam show minutes (progress), and bubbles/wiggles show seconds (activity).
-            </li>
-            <li>
-              I kept a large central pot and high-contrast shapes so it stays readable from a distance on a laptop screen.
-            </li>
-            <li>
-              Motion is subtle and limited to time-dependent elements to avoid distraction while still conveying “live” status.
-            </li>
-          </ul>
-
-          <p><strong>Future work:</strong></p>
-          <ul>
-            <li>Add a mode to pin multiple named timers (e.g., “eggs”, “pasta”) and show remaining time.</li>
-            <li>Add accessibility options (reduced motion / higher contrast).</li>
-          </ul>
-        </div>
-
-        <h3>Sketch evolution</h3>
-
-        <figure>
-          <img src="images/1.jpg" alt="Sketch A evolution step 1" />
-          <figcaption>Step 1 — initial layout and annotated design decisions</figcaption>
-        </figure>
-
-        <figure>
-          <img src="images/2.jpg" alt="Sketch A evolution step 2" />
-          <figcaption>Step 2 — second layout after peer feedback</figcaption>
-        </figure>
-
-        <figure>
-          <img src="images/3.jpg" alt="Sketch A evolution step 3" />
-          <figcaption>Step 3 — refined visuals and final implementation</figcaption>
-        </figure>
+    <section id="hwk5" class="tab-content" role="tabpanel">
+      <div class="sketch-container" id="sketch-container-hwk5">
+        <iframe style="width: 100%; height: 100vh; border: 0;"
+          src="./hwk5/">
+        </iframe>
       </div>
-    </section>
-
-    <section id="tab3" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk3" class="sketch-container"></div>
-
-      <div class="sketch-narrative" aria-labelledby="sk3-narrative-title">
-        <h3 id="sk3-narrative-title">Sketch B — Sketch narrative</h3>
-
-        <p>
-          <strong>Context:</strong> This sketch explores an alternative cooking-themed clock that remains glanceable while I’m multitasking
-          (stirring, prepping, or watching a recipe video). The goal is to communicate time using cooking cues rather than small numerals.
-        </p>
-
-        <p><strong>Design decisions:</strong></p>
-        <ul>
-          <li>
-            I kept a clear hierarchy by separating <strong>hour</strong>, <strong>minute</strong>, and <strong>second</strong> into distinct
-            visual channels (heat / progress / motion), so each unit reads quickly and consistently.
-          </li>
-          <li>
-            I prioritized <strong>minute readability</strong> by mapping minutes to countable repeated elements, which is easier to scan from a
-            distance than dense ticks or tiny text.
-          </li>
-          <li>
-            Animation is limited to second-level cues so the overall composition stays calm and non-distracting while still showing that time is “live.”
-          </li>
-        </ul>
-
-        <p>
-          <strong>Future work:</strong> Add optional 5-minute highlights and a reduced-motion toggle for accessibility and comfort.
-        </p>
-      </div>
-    </section>
-
-    <section id="tab4" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk4" class="sketch-container"></div>
-
-      <div class="sketch-narrative" aria-labelledby="sk4-narrative-title">
-        <h3 id="sk4-narrative-title">Steam Bar Kitchen Clock — Sketch narrative</h3>
-
-        <p>
-          <strong>Context:</strong> This sketch focuses on a highly glanceable encoding for cooking, where I may only look at the screen briefly
-          while handling hot cookware or ingredients. It should communicate time clearly without relying on small numbers.
-        </p>
-
-        <p><strong>Design decisions:</strong></p>
-        <ul>
-          <li>
-            I mapped <strong>minutes</strong> to a <strong>60-bar steam chart</strong>: the first <em>mn</em> bars are active, so I can instantly see
-            how far into the hour we are.
-          </li>
-          <li>
-            I mapped <strong>hours</strong> to burner flames (more flames = higher hour), matching the cooking metaphor of “heat level.”
-          </li>
-          <li>
-            <strong>Seconds</strong> are shown through subtle wobble and motion in the steam/bubbles, keeping the clock feeling alive without adding clutter.
-          </li>
-        </ul>
-
-        <p>
-          <strong>Future work:</strong> Add a reduced-motion option and higher-contrast mode, plus optional 5-minute tick highlights to make minute estimation even faster.
-        </p>
-      </div>
-    </section>
-
-    <section id="tab5" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk5" class="sketch-container"></div>
-    </section>
-
-    <section id="tab6" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk6" class="sketch-container"></div>
-    </section>
-
-    <section id="tab7" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk7" class="sketch-container"></div>
-    </section>
-
-    <section id="tab8" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk8" class="sketch-container"></div>
-    </section>
-
-    <section id="tab9" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk9" class="sketch-container"></div>
-    </section>
-
-    <section id="tab10" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk10" class="sketch-container"></div>
-    </section>
-
-    <section id="tab11" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk11" class="sketch-container"></div>
-      <p>Adapted from Golan Levin, 2016-2018</p>
-    </section>
-
-    <section id="tab12" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk12" class="sketch-container"></div>
-    </section>
-
-    <section id="tab13" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk13" class="sketch-container"></div>
-    </section>
-
-    <section id="tab14" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk14" class="sketch-container"></div>
     </section>
 
   </main>
