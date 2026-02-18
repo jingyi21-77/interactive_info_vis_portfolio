@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INFO 474: Interactive Information Visualization</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <title>INFO 474: Interactive Information Visualization</title>
 </head>
 
 <body>
   <main>
     <nav class="tabs" role="tablist" aria-label="Main tabs">
-      <button type="button" class="tab-btn active" data-target="hwk4a" data-sketch="sk2" role="tab" aria-selected="true">HWK 4 A</button>
-      <button type="button" class="tab-btn" data-target="hwk4b" data-sketch="sk3" role="tab" aria-selected="false">HWK 4 B</button>
-      <button type="button" class="tab-btn" data-target="hwk4c" data-sketch="sk4" role="tab" aria-selected="false">HWK 4 C</button>
+      <button type="button" class="tab-btn active" data-target="hwk4" role="tab" aria-selected="true">HWK 4</button>
       <button type="button" class="tab-btn" data-target="hwk5" role="tab" aria-selected="false">HWK 5</button>
     </nav>
 
-    <section id="hwk4a" class="tab-content active" role="tabpanel">
-      <div id="sketch-container-sk2" class="sketch-container"></div>
+    <!-- HWK4 -->
+    <section id="hwk4" class="tab-content active" role="tabpanel">
+      <nav class="tabs" role="tablist" aria-label="HWK4 tabs">
+        <button type="button" class="tab-btn active" data-target="hwk4a" role="tab" aria-selected="true">HWK 4 A</button>
+        <button type="button" class="tab-btn" data-target="hwk4b" role="tab" aria-selected="false">HWK 4 B</button>
+        <button type="button" class="tab-btn" data-target="hwk4c" role="tab" aria-selected="false">HWK 4 C</button>
+      </nav>
 
-      <div class="sketch-evolution">
+      <section id="hwk4a" class="tab-content active" role="tabpanel">
+        <div class="sketch-container" id="sketch-container-sk2"></div>
+
         <div class="sketch-narrative">
-          <h3>HWK 4 A — Design notes</h3>
-          <p>Context, mapping, and reflection for Clock A.</p>
+          <h3>Boiling Pot Clock — Sketch narrative</h3>
+          <p>
+            Hours map to burner flame count. Minutes map to water level. Seconds appear as bubble activity and subtle surface motion,
+            keeping the display “alive” without requiring small digits.
+          </p>
         </div>
 
-        <h3>Sketch evolution</h3>
+        <div class="sketch-evolution">
+          <h3>Sketch evolution</h3>
+          <figure>
+            <img src="images/1.jpg" alt="Sketch A evolution step 1" />
+            <figcaption>Step 1 — initial layout and annotated design decisions</figcaption>
+          </figure>
+          <figure>
+            <img src="images/2.jpg" alt="Sketch A evolution step 2" />
+            <figcaption>Step 2 — second layout after peer feedback</figcaption>
+          </figure>
+          <figure>
+            <img src="images/3.jpg" alt="Sketch A evolution step 3" />
+            <figcaption>Step 3 — refined visuals and final implementation</figcaption>
+          </figure>
+        </div>
+      </section>
 
-        <figure>
-          <img src="images/1.jpg" alt="HWK4 A sketch 1" />
-          <figcaption>Step 1</figcaption>
-        </figure>
+      <section id="hwk4b" class="tab-content" role="tabpanel">
+        <div class="sketch-container" id="sketch-container-sk3"></div>
 
-        <figure>
-          <img src="images/2.jpg" alt="HWK4 A sketch 2" />
-          <figcaption>Step 2</figcaption>
-        </figure>
+        <div class="sketch-narrative">
+          <h3>Sketch B — Sketch narrative</h3>
+          <p>
+            This version explores an alternative cooking-themed encoding with clearer separation between hour/minute/second channels,
+            to improve glanceability while multitasking.
+          </p>
+        </div>
+      </section>
 
-        <figure>
-          <img src="images/3.jpg" alt="HWK4 A sketch 3" />
-          <figcaption>Step 3</figcaption>
-        </figure>
-      </div>
+      <section id="hwk4c" class="tab-content" role="tabpanel">
+        <div class="sketch-container" id="sketch-container-sk4"></div>
+
+        <div class="sketch-narrative">
+          <h3>Steam Bar Kitchen Clock — Sketch narrative</h3>
+          <p>
+            Minutes become a 60-bar steam chart for fast scanning; hours use heat/flame cues; seconds are motion-only so the layout stays calm.
+          </p>
+        </div>
+      </section>
     </section>
 
-    <section id="hwk4b" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk3" class="sketch-container"></div>
-
-      <div class="sketch-narrative">
-        <h3>HWK 4 B — Design notes</h3>
-        <p>Context, mapping, and reflection for Clock B.</p>
-      </div>
-    </section>
-
-    <section id="hwk4c" class="tab-content" role="tabpanel">
-      <div id="sketch-container-sk4" class="sketch-container"></div>
-
-      <div class="sketch-narrative">
-        <h3>HWK 4 C — Design notes</h3>
-        <p>Context, mapping, and reflection for Clock C.</p>
-      </div>
-    </section>
-
+    <!-- HWK5 -->
     <section id="hwk5" class="tab-content" role="tabpanel">
       <div class="sketch-container" id="sketch-container-hwk5">
-        <iframe style="width:100%; height:100vh; border:0;" src="./hwk5/"></iframe>
+        <iframe style="width:100%;height:100vh;border:0;" src="./hwk5/"></iframe>
       </div>
     </section>
   </main>
 
   <script src="script.js"></script>
 </body>
-
 </html>
