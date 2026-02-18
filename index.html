@@ -1,87 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>INFO 474: Interactive Information Visualization</title>
-
-  <link rel="stylesheet" type="text/css" href="style.css" />
 
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <main>
     <nav class="tabs" role="tablist" aria-label="Main tabs">
-      <button type="button" class="tab-btn active" data-target="hwk4" role="tab" aria-selected="true">HWK 4</button>
-      <button type="button" class="tab-btn" data-target="hwk5" role="tab" aria-selected="false">HWK 5</button>
+      <button type="button" class="tab-btn active" data-target="tab-hwk4a" data-sketch="sk2" role="tab" aria-selected="true">HWK 4 A</button>
+      <button type="button" class="tab-btn" data-target="tab-hwk4b" data-sketch="sk3" role="tab" aria-selected="false">HWK 4 B</button>
+      <button type="button" class="tab-btn" data-target="tab-hwk4c" data-sketch="sk4" role="tab" aria-selected="false">HWK 4 C</button>
+      <button type="button" class="tab-btn" data-target="tab-hwk5" role="tab" aria-selected="false">HWK 5</button>
     </nav>
 
-    <!-- HWK4 -->
-    <section id="hwk4" class="tab-content active" role="tabpanel">
-      <nav class="tabs" role="tablist" aria-label="HWK4 tabs">
-        <button type="button" class="tab-btn active" data-target="hwk4a" role="tab" aria-selected="true">HWK 4 A</button>
-        <button type="button" class="tab-btn" data-target="hwk4b" role="tab" aria-selected="false">HWK 4 B</button>
-        <button type="button" class="tab-btn" data-target="hwk4c" role="tab" aria-selected="false">HWK 4 C</button>
-      </nav>
+    <!-- HWK4 A -->
+    <section id="tab-hwk4a" class="tab-content active" role="tabpanel">
+      <div id="sketch-container-sk2" class="sketch-container"></div>
 
-      <section id="hwk4a" class="tab-content active" role="tabpanel">
-        <div class="sketch-container" id="sketch-container-sk2"></div>
+      <div class="sketch-evolution">
+        <div class="sketch-narrative" aria-labelledby="sk2-narrative-title">
+          <h3 id="sk2-narrative-title">Boiling Pot Clock — Sketch narrative</h3>
 
-        <div class="sketch-narrative">
-          <h3>Boiling Pot Clock — Sketch narrative</h3>
           <p>
-            Hours map to burner flame count. Minutes map to water level. Seconds appear as bubble activity and subtle surface motion,
-            keeping the display “alive” without requiring small digits.
+            <strong>Context:</strong> This clock supports cooking on a desktop while multitasking. I often start multiple timers (boil, simmer, rest), and I need a quick “at-a-glance” view of how long has passed/what’s happening without reading small digits.
           </p>
+
+          <p><strong>Design decisions:</strong></p>
+          <ul>
+            <li>I used a “boiling pot” metaphor to map time to cooking cues: flames indicate hours (heat level), ingredients/steam show minutes (progress), and bubbles/wiggles show seconds (activity).</li>
+            <li>I kept a large central pot and high-contrast shapes so it stays readable from a distance on a laptop screen.</li>
+            <li>Motion is subtle and limited to time-dependent elements to avoid distraction while still conveying “live” status.</li>
+          </ul>
+
+          <p><strong>Future work:</strong></p>
+          <ul>
+            <li>Add a mode to pin multiple named timers (e.g., “eggs”, “pasta”) and show remaining time.</li>
+            <li>Add accessibility options (reduced motion / higher contrast).</li>
+          </ul>
         </div>
 
-        <div class="sketch-evolution">
-          <h3>Sketch evolution</h3>
-          <figure>
-            <img src="images/1.jpg" alt="Sketch A evolution step 1" />
-            <figcaption>Step 1 — initial layout and annotated design decisions</figcaption>
-          </figure>
-          <figure>
-            <img src="images/2.jpg" alt="Sketch A evolution step 2" />
-            <figcaption>Step 2 — second layout after peer feedback</figcaption>
-          </figure>
-          <figure>
-            <img src="images/3.jpg" alt="Sketch A evolution step 3" />
-            <figcaption>Step 3 — refined visuals and final implementation</figcaption>
-          </figure>
-        </div>
-      </section>
+        <h3>Sketch evolution</h3>
 
-      <section id="hwk4b" class="tab-content" role="tabpanel">
-        <div class="sketch-container" id="sketch-container-sk3"></div>
+        <figure>
+          <img src="images/1.jpg" alt="Sketch A evolution step 1" />
+          <figcaption>Step 1 — initial layout and annotated design decisions</figcaption>
+        </figure>
 
-        <div class="sketch-narrative">
-          <h3>Sketch B — Sketch narrative</h3>
-          <p>
-            This version explores an alternative cooking-themed encoding with clearer separation between hour/minute/second channels,
-            to improve glanceability while multitasking.
-          </p>
-        </div>
-      </section>
+        <figure>
+          <img src="images/2.jpg" alt="Sketch A evolution step 2" />
+          <figcaption>Step 2 — second layout after peer feedback</figcaption>
+        </figure>
 
-      <section id="hwk4c" class="tab-content" role="tabpanel">
-        <div class="sketch-container" id="sketch-container-sk4"></div>
+        <figure>
+          <img src="images/3.jpg" alt="Sketch A evolution step 3" />
+          <figcaption>Step 3 — refined visuals and final implementation</figcaption>
+        </figure>
+      </div>
+    </section>
 
-        <div class="sketch-narrative">
-          <h3>Steam Bar Kitchen Clock — Sketch narrative</h3>
-          <p>
-            Minutes become a 60-bar steam chart for fast scanning; hours use heat/flame cues; seconds are motion-only so the layout stays calm.
-          </p>
-        </div>
-      </section>
+    <!-- HWK4 B -->
+    <section id="tab-hwk4b" class="tab-content" role="tabpanel">
+      <div id="sketch-container-sk3" class="sketch-container"></div>
+
+      <div class="sketch-narrative" aria-labelledby="sk3-narrative-title">
+        <h3 id="sk3-narrative-title">Sketch B — Sketch narrative</h3>
+
+        <p>
+          <strong>Context:</strong> This sketch explores an alternative cooking-themed clock that remains glanceable while I’m multitasking (stirring, prepping, or watching a recipe video). The goal is to communicate time using cooking cues rather than small numerals.
+        </p>
+
+        <p><strong>Design decisions:</strong></p>
+        <ul>
+          <li>I kept a clear hierarchy by separating <strong>hour</strong>, <strong>minute</strong>, and <strong>second</strong> into distinct visual channels (heat / progress / motion), so each unit reads quickly and consistently.</li>
+          <li>I prioritized <strong>minute readability</strong> by mapping minutes to countable repeated elements, which is easier to scan from a distance than dense ticks or tiny text.</li>
+          <li>Animation is limited to second-level cues so the overall composition stays calm and non-distracting while still showing that time is “live.”</li>
+        </ul>
+
+        <p><strong>Future work:</strong> Add optional 5-minute highlights and a reduced-motion toggle for accessibility and comfort.</p>
+      </div>
+    </section>
+
+    <!-- HWK4 C -->
+    <section id="tab-hwk4c" class="tab-content" role="tabpanel">
+      <div id="sketch-container-sk4" class="sketch-container"></div>
+
+      <div class="sketch-narrative" aria-labelledby="sk4-narrative-title">
+        <h3 id="sk4-narrative-title">Steam Bar Kitchen Clock — Sketch narrative</h3>
+
+        <p>
+          <strong>Context:</strong> This sketch focuses on a highly glanceable encoding for cooking, where I may only look at the screen briefly while handling hot cookware or ingredients. It should communicate time clearly without relying on small numbers.
+        </p>
+
+        <p><strong>Design decisions:</strong></p>
+        <ul>
+          <li>I mapped <strong>minutes</strong> to a <strong>60-bar steam chart</strong>: the first <em>mn</em> bars are active, so I can instantly see how far into the hour we are.</li>
+          <li>I mapped <strong>hours</strong> to burner flames (more flames = higher hour), matching the cooking metaphor of “heat level.”</li>
+          <li><strong>Seconds</strong> are shown through subtle wobble and motion in the steam/bubbles, keeping the clock feeling alive without adding clutter.</li>
+        </ul>
+
+        <p><strong>Future work:</strong> Add a reduced-motion option and higher-contrast mode, plus optional 5-minute tick highlights to make minute estimation even faster.</p>
+      </div>
     </section>
 
     <!-- HWK5 -->
-    <section id="hwk5" class="tab-content" role="tabpanel">
+    <section id="tab-hwk5" class="tab-content" role="tabpanel">
       <div class="sketch-container" id="sketch-container-hwk5">
-        <iframe style="width:100%;height:100vh;border:0;" src="./hwk5/"></iframe>
+        <iframe style="width:100%;height:100vh;border:0;" src="hwk5/"></iframe>
       </div>
     </section>
   </main>
