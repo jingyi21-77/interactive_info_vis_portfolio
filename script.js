@@ -7,15 +7,31 @@ window.registerSketch = function (id, factory) {
 };
 
 const SKETCH_SCRIPT_BY_ID = {
-  sk2: "sketches/sketch2.js",
-  sk3: "sketches/sketch3.js",
-  sk4: "sketches/sketch4.js",
+  sk2: 'sketches/sketch2.js',
+  sk3: 'sketches/sketch3.js',
+  sk4: 'sketches/sketch4.js',
 };
+
+function getDefaultButton(buttons) {
+  const params = new URLSearchParams(window.location.search);
+  const tabParam = params.get('tab') || params.get('sketch');
+  if (tabParam) {
+    const bySketch = Array.from(buttons).find(b => b.dataset.sketch === tabParam);
+    if (bySketch) return bySketch;
+    const byTarget = Array.from(buttons).find(b => b.dataset.target === tabParam);
+    if (byTarget) return byTarget;
+  }
+  if (typeof window.DEFAULT_SKETCH === 'string') {
+    const btn = Array.from(buttons).find(b => b.dataset.sketch === window.DEFAULT_SKETCH);
+    if (btn) return btn;
+  }
+  return buttons[0] || null;
+}
 
 function loadSketchScriptIfNeeded(sketchId) {
   return new Promise((resolve, reject) => {
     const src = SKETCH_SCRIPT_BY_ID[sketchId];
-    if (!src) return reject(new Error("No script configured for " + sketchId));
+    if (!src) return reject(new Error('No script configured for ' + sketchId));
 
     if (window._sketchScriptsLoaded[sketchId]) return resolve();
 
@@ -25,29 +41,29 @@ function loadSketchScriptIfNeeded(sketchId) {
       return resolve();
     }
 
-    const s = document.createElement("script");
+    const s = document.createElement('script');
     s.src = src;
     s.onload = () => {
       window._sketchScriptsLoaded[sketchId] = true;
       resolve();
     };
-    s.onerror = () => reject(new Error("Failed to load " + src));
+    s.onerror = () => reject(new Error('Failed to load ' + src));
     document.body.appendChild(s);
   });
 }
 
 function createOrShowSketch(sketchId) {
-  const container = document.getElementById("sketch-container-" + sketchId);
+  const container = document.getElementById('sketch-container-' + sketchId);
 
-  Object.keys(window._sketchInstances).forEach((id) => {
+  Object.keys(window._sketchInstances).forEach(id => {
     const inst = window._sketchInstances[id];
-    if (inst && inst.canvas) inst.canvas.style.display = id === sketchId ? "" : "none";
+    if (inst && inst.canvas) inst.canvas.style.display = (id === sketchId) ? '' : 'none';
   });
 
   if (window._sketchInstances[sketchId]) {
     const inst = window._sketchInstances[sketchId];
     if (inst && inst.canvas && container) container.appendChild(inst.canvas);
-    if (inst && inst.canvas) inst.canvas.style.display = "";
+    if (inst && inst.canvas) inst.canvas.style.display = '';
     return;
   }
 
@@ -58,54 +74,38 @@ function createOrShowSketch(sketchId) {
   window._sketchInstances[sketchId] = p5inst;
 }
 
-function getDefaultButton(buttons) {
-  const params = new URLSearchParams(window.location.search);
-  const tabParam = params.get("tab");
-  if (tabParam) {
-    const byTarget = Array.from(buttons).find((b) => b.dataset.target === tabParam);
-    if (byTarget) return byTarget;
-    const bySketch = Array.from(buttons).find((b) => b.dataset.sketch === tabParam);
-    if (bySketch) return bySketch;
-  }
-  return buttons[0] || null;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".tab-btn");
-  const contents = document.querySelectorAll(".tab-content");
+  buttons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      contents.forEach(c => c.classList.remove('active'));
 
-  async function activate(btn) {
-    buttons.forEach((b) => {
-      b.classList.remove("active");
-      b.setAttribute("aria-selected", "false");
-    });
-    contents.forEach((c) => c.classList.remove("active"));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
 
-    btn.classList.add("active");
-    btn.setAttribute("aria-selected", "true");
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.classList.add('active');
 
-    const targetId = btn.dataset.target;
-    const target = document.getElementById(targetId);
-    if (target) target.classList.add("active");
-
-    const sketchId = btn.dataset.sketch;
-    if (sketchId) {
-      try {
-        await loadSketchScriptIfNeeded(sketchId);
-        if (window._sketchRegistry[sketchId]) createOrShowSketch(sketchId);
-        else setTimeout(() => window._sketchRegistry[sketchId] && createOrShowSketch(sketchId), 60);
-      } catch (e) {
-        console.error(e);
+      const sketchId = btn.dataset.sketch;
+      if (sketchId) {
+        try {
+          await loadSketchScriptIfNeeded(sketchId);
+          if (window._sketchRegistry[sketchId]) createOrShowSketch(sketchId);
+          else setTimeout(() => { if (window._sketchRegistry[sketchId]) createOrShowSketch(sketchId); }, 50);
+        } catch (err) {
+          console.error(err);
+        }
+      } else {
+        Object.values(window._sketchInstances).forEach(inst => { if (inst && inst.canvas) inst.canvas.style.display = 'none'; });
       }
-    } else {
-      Object.values(window._sketchInstances).forEach((inst) => {
-        if (inst && inst.canvas) inst.canvas.style.display = "none";
-      });
-    }
-  }
 
-  buttons.forEach((btn) => btn.addEventListener("click", () => activate(btn)));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
   const first = getDefaultButton(buttons);
-  if (first) setTimeout(() => activate(first), 50);
+  if (first) setTimeout(() => first.click(), 40);
 });
