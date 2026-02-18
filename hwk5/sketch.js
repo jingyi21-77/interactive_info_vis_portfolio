@@ -331,6 +331,7 @@ function drawCallouts() {
 
     if (c.album === "Folklore") { bx = pt.x - 360; by = pt.y - 90; }
     if (c.album === "Midnights") { bx = pt.x - 360; by = pt.y + 30; }
+    if (c.album === "Reputation") { bx = pt.x - 360; by = pt.y - 90; }
 
     drawAnnotationBox(bx, by, 340, 86, c.text, pt.x, pt.y);
   }
